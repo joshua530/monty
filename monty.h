@@ -1,14 +1,18 @@
 #ifndef MONTY_H
 #define MONTY_H
 
+#define _POSIX_C_SOURCE 200809L
+#define _GNU_SOURCE
+
+#include <errno.h>
+#include <fcntl.h>
+#include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <sys/types.h>
-#include <errno.h>
-#include <sys/stat.h>
-#include <fcntl.h>
-#include <unistd.h>
 #include <string.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <unistd.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -78,7 +82,7 @@ void cleanStack(stack_t **stack);
 
 /*Help*/
 int _isdigit(char *c);
-stack_t *new_Node(int n);
+stack_t *instantiate_node(int n);
 
 /* handle_errors */
 void push_error(FILE *fd, char *line, stack_t *stack, int count);

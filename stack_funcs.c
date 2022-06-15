@@ -1,27 +1,6 @@
 #include "monty.h"
 
 int value;
-/**
- * new_Node - create new node
- * @n: is a value
- * Return: new node
- */
-stack_t *new_Node(int n)
-{
-	stack_t *new = NULL;
-
-	new = malloc(sizeof(stack_t));
-	if (new == NULL)
-	{
-		dprintf(STDERR_FILENO, "Error: malloc failed\n");
-		exit(EXIT_FAILURE);
-	}
-	new->n = n;
-	new->next = NULL;
-	new->prev = NULL;
-
-	return (new);
-}
 
 /**
  * _push - push item
@@ -33,7 +12,7 @@ void _push(stack_t **stack, unsigned int line_number)
 	stack_t *new = NULL;
 	(void)line_number;
 
-	new = new_Node(value);
+	new = instantiate_node(value);
 
 	new->next = *stack;
 	if (*stack != NULL)
@@ -42,7 +21,7 @@ void _push(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * _pall - print elements stack
+ * _pall - print stack elements
  * @stack: is a parameter
  * @n: is value
  * Return: nothing
@@ -62,7 +41,23 @@ void _pall(stack_t **stack, unsigned int n)
 }
 
 /**
- * free_dlistint - Free a list.
+ * _pint - prints the value at the top of the stack.
+ * @stack: Stack list
+ * @line_number: Number of the line
+ */
+void _pint(stack_t **stack, unsigned int line_number)
+{
+	if (!*stack || !stack)
+	{
+		dprintf(STDERR_FILENO, "L%d: can't pint, stack empty\n", line_number);
+		cleanStack(stack);
+		exit(EXIT_FAILURE);
+	} else
+		dprintf(STDOUT_FILENO, "%d\n", (*stack)->n);
+}
+
+/**
+ * free_dlistint - Frees a stack.
  * @stack: Head node.
  * Return: Nothing.
  */
@@ -80,18 +75,23 @@ void free_dlistint(stack_t *stack)
 }
 
 /**
- * _pint - prints the value at the top of the stack.
- * @stack: Stack list
- * @line_number: Number of the line
+ * instantiate_node - create new node
+ * @n: is a value
+ * Return: new node
  */
-void _pint(stack_t **stack, unsigned int line_number)
+stack_t *instantiate_node(int n)
 {
-	if (!*stack || !stack)
+	stack_t *new = NULL;
+
+	new = malloc(sizeof(stack_t));
+	if (new == NULL)
 	{
-		dprintf(STDERR_FILENO, "L%d: can't pint, stack empty\n", line_number);
-		cleanStack(stack);
+		dprintf(STDERR_FILENO, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
-	else
-		dprintf(STDOUT_FILENO, "%d\n", (*stack)->n);
+	new->n = n;
+	new->next = NULL;
+	new->prev = NULL;
+
+	return (new);
 }
