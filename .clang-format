@@ -1,4 +1,4 @@
-BasedOnStyle: Google
+BasedOnStyle: LLVM
 UseTab: Always
 IndentWidth: 4
 TabWidth: 4
@@ -7,7 +7,7 @@ BraceWrapping:
   AfterFunction: true
   AfterStruct: true
   SplitEmptyFunction: true
-  BraceWrappingAfterControlStatementStyle: Always
+  AfterControlStatement: Always
 
 AllowShortFunctionsOnASingleLine: None
 IndentCaseLabels: true
