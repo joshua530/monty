@@ -1,9 +1,9 @@
 pall
-    pall holberton
-push 5
-      push 8 Hola
-  push -7 Alexa
-pall caño
-     push esta
+    pall vma
+push 2
+      push 8 abcd
+  push -7 baz
+pall meh
+     push bazz
      
      

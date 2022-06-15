@@ -1,7 +1,7 @@
-push 0 hola
-push 1 estudiante
-push 2 de
-push 3 holberton
+push 0 foo
+push 1 bar
+push 2 baz
+push 3 blah
 pall    
 push 4
 push 5    
