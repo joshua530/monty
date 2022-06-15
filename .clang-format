@@ -1,0 +1,15 @@
+BasedOnStyle: LLVM
+UseTab: Always
+IndentWidth: 4
+TabWidth: 4
+BreakBeforeBraces: Custom
+BraceWrapping:
+  AfterFunction: true
+  AfterStruct: true
+  SplitEmptyFunction: true
+  AfterControlStatement: Always
+
+AllowShortFunctionsOnASingleLine: None
+IndentCaseLabels: true
+AccessModifierOffset: -4
+AlwaysBreakTemplateDeclarations: Yes
